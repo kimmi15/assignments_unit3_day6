@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     #sdiv{
+        display: flex;
+        justify-content: space-around;
+        border:  1px solid red;
+        height: 50px;
+        width: 100%;
+    }
+    button{
+        font-size: 20px;
+        width: 95px;
+        height: 50px;
+        background-color:red;
+    }
+    #head{
+        text-align: center;
+        font-size: 40px;
+        font-weight: bold;
+    }
+    li{
+        font-size: 30px;
+        margin-top: 20px;
+        text-align: left;
+    }
+    </style>
+</head>
+<body>
+    <!-- ///main div -->
+    <div id="mdiv">
+        <!-- //2.sidediv inside main div  -->
+    <div id='sdiv'>
+        <button  onclick="displayTopic('Objects')">Objects-c</button>
+        <button  onclick="displayTopic('Arrays')">Arrays-c</button>
+        <button  onclick="displayTopic('Functions')">Functions-c</button>
+        <button  onclick="displayTopic('Strings')">Strings-c</button>
+        <button  onclick="displayTopic('Numbers')">Numbers-c</button>
+        <button  onclick="displayTopic('Null')">Null-c</button>
+        <button  onclick="displayTopic('Undefined')">Undefined-c</button>
+</div>
+<!-- //2.head div inside main div -->
+<div id="head">
+    <div id="headp"></div>
+</div>
+<!-- //3.textdiv inside the maindiv -->
+<div style="margin-top:50px;" id="textdiv"></div>
+</div>
+    </div>
+</body>
+</html>
+<script>
+ const mdata=[
+    {topic:"Objects",
+line1:"In real life,a car is an object.A car has properties like weight and color,and methods like start and stop",
+line2:"The values are written as name:value pairs ",
+line3:"Objects can also have method and we can create mutiple object by using constructor",
+line4:"we can create mutiple object this keyword is used point to global object and new keyword is create object ",
+line5:"object is mutable we can change the properties of key and it is non-primitive type of data-strtcture",
+line6:"we can change the propertires of key and value of object "
+} ,
+    {topic:"Arrays",
+    line1:"array.sort() used to arrange element in increasing order",
+    line2:"An array is special varible ,which can hold more than one value",
+    line3:"An array is mutable we can change the value in array with thier index",
+    line4:"An array is not primitive type",
+    line5:"we use shift() and unshift() to remove element from starting index",
+    line6:"we use push() pop() to add element from last index of array",
+},
+{topic:"Functions",
+line1:"when we wants use same code many times.you can use the same code use the same code many times with diffrent argument to product diffrent results ",
+line2:"when we want print the function we havae to invoke the function",
+line3:"local varible is defiend within function ",
+line4:"block scope i=means varible is declared inside the block if you console it will give refernce error",
+line5:"we use mainly forEach loop for function",
+line6:"we can decared let ,const ,var it is used with assigining the varible const keyword doent give the permission for changing the value"
+},
+{topic:"Strings",
+line1:"string is Primitive data type we can't change the value of index ",
+line2:"string is immutable data-type",
+line3:"there are three method extracting part of string beacuse we cant directly get element from string",
+line4:"we use in-built methods function splice()it has two part(start,end) and in-built method slice() it take(start)",
+line5:"we can use substring(start,length) it is in-bulit method to get the length of element",
+line6:"if you create creating substring using string if you have to find length ewe can use substr(start,length)",
+},
+{topic:"Numbers",
+line1:"number is primtive data type ",
+line2:"Numbers can also be denoted in hexadecimal notation.",
+line3:"A JavaScript string is zero or more characters written inside quotes",
+line4:"Operations on floating-point numbers results in some unexpected results",
+line5:"Numbers can also be denoted in hexadecimal notation.",
+line6:"we can declare number by using var ,let ,const,",
+
+},
+{topic:"Undefined",
+line1:"when we are declared varible but not givenvalue still try to acess it will give undefined",
+line2:"A function returns undefined if a value was not returned.",
+line3:"The null in JavaScript is a special value & also a data type.",
+line4:"The value null represents the intentional absence of any object value.",
+line5:"JavaScript does not assign null to any variable. But we can do it by assigning literal null to a variable",
+line6:"It represents nothing or no value. null means we know that the variable does not have any value.",
+},
+{topic:"Null",
+line1:"null not value assign",
+line2:"The value null represents the intentional absence of any object value",
+line3:"The value null represents the intentional absence of any object value",
+line4:"JavaScript does not assign null to any variable. But we can do it by assigning literal null to a variable.",
+line5:"The value of null is represented in JavaScript using the literal null",
+line6:"JavaScript does not assign null to any variable. But we can do it by assigning literal null to a variable.",
+},
+
+]
+  
+   //Create the lines and heading for first topic without any functions to display
+          
+//create the line and heading for first topic without any function to display.
+document.getElementById("headp").textContent=mdata[0].topic
+//create lines and headings
+crul=document.createElement("ul")
+crli1=document.createElement("li")
+crli1.textContent=mdata[0].line1
+crli2=document.createElement("li")
+crli2.textContent=mdata[0].line2
+crli3=document.createElement("li")
+crli3.textContent=mdata[0].line3
+crli4=document.createElement("li")
+crli4.textContent=mdata[0].line4
+crli5=document.createElement("li")
+crli5.textContent=mdata[0].line5
+crli6=document.createElement("li")
+crli6.textContent=mdata[0].line6
+document.getElementById("textdiv").append(crli1,crli2,crli3,crli4,crli5)
+//create function with onclick button for run function
+function displayTopic(x){
+//Empty the div fir every times get new data
+document.getElementById("textdiv").textContent=""
+//run the loop for the correct data by whichbutton pressing onclick
+for(let i=0;i<mdata.length;i++){
+
+if(mdata[i].topic==x){
+    //Again create the lines and dtopics using dom
+    document.getElementById("headp").textContent=mdata[i].topic
+    crul=document.createElement("ul")
+    crli1=document.createElement("li")
+    crli1.textContent=mdata[i].line1
+    crli2=document.createElement("li")
+    crli2.textContent=mdata[i].line2
+   crli3=document.createElement("li")
+   crli3.textContent=mdata[i].line3
+   crli4=document.createElement("li")
+   crli4.textContent=mdata[i].line4
+   crli5=document.createElement("li")
+   crli5.textContent=mdata[i].line5
+   crli6=document.createElement("li")
+   crli6.textContent=mdata[i].line6
+   //Make all the element to child append
+document.getElementById("textdiv").append(crli1,crli2,crli3,crli4,crli5,crli6)
+}
+         
+        
+    }
+    }
+
+         
+        </script>

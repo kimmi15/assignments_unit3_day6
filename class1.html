@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+<style>
+    #sdiv{
+        display: flex;
+        justify-content: space-between;
+        
+    }
+    button{
+        font-size: 30px;
+        font-weight: bold;
+        width: auto;
+        background-color: darkgreen;    
+    }
+    #Head{
+          text-align: center;
+          font-size: 40px;
+          font-weight: bold;
+    }
+    li{
+        font-size: 30px;
+        margin-top: 20px;
+        text-align: left;
+    }
+</style>
+<body>
+    <div id="mdiv">
+        <div id="sdiv">   
+<button  onclick="displayTopic('Objects')">Objects</button>
+<button  onclick="displayTopic('Arrays')">Arrays</button>
+<button  onclick="displayTopic('Functions')">Functions</button>
+<button  onclick="displayTopic('Strings')">Strings</button>
+<button  onclick="displayTopic('Numbers')">Numbers</button>
+<button  onclick="displayTopic('Null')">Null</button>
+<button  onclick="displayTopic('Undefined')">Undefined</button>
+</div>
+<div id="Head">
+    <p id="headp"></p>
+</div>
+<div style="margin-top: 50px;" id="textdiv"></div>
+    </div>
+</body>
+</html>
+<script>
+    // Create raw data for an array of object
+    const mdata=[
+        {
+        topic:"Objects",
+        line1:"Objects, in JavaScript, is it’s most important data-type and forms the building blocks for modern JavaScript.",
+        line2:"Objects are more complex and each object may contain any combination of these primitive data-types as well as reference data-types.",
+         line3:"These objects are quite different from JavaScript’s primitive data-types(Number, String, Boolean, null, undefined and symbol) in the sense that while these primitive data-types all store a single value each (depending on their types).",
+         line4:"An object, is a reference data type. Variables that are assigned a reference value are given a reference or a pointer to that value. That reference or pointer points to the location in memory where the object is stored.",
+        line5:"Loosely speaking, objects in JavaScript may be defined as an unordered collection of related data, of primitive or reference types, in the form of “key: value” pairs. These keys can be variables or functions and are called properties and methods, respectively, in the context of an object.",
+         line6:"An object can be created with figure brackets {…} with an optional list of properties. A property is a “key: value” pair, where a key is a string (also called a “property name”), and value can be anything."
+        }
+        ,
+        {
+            topic:"Arrays",
+            line1:"In JavaScript, array is a single variable that is used to store different elements.",
+            line2:"It is often used when we want to store list of elements and access them by a single variable.",
+            line3:"We can store Numbers, Strings and Boolean in a single array. ",
+            line4:"Unlike most languages where array is a reference to the multiple variable, in JavaScript array is a single variable that stores multiple elements.",
+            line5:"Length property of an Array returns the length of an Array. Length of an Array is always one more than the highest index of an Array.",
+            line6:"Array in JavaScript are indexed from 0 so we can access array elements."
+        }
+        ,
+        {
+            topic:"Functions",
+            line1:"A function is a set of statements that take inputs, do some specific computation, and produces output. ",
+            line2:"Basically, a function is a set of statements that performs some tasks or does some computation and then return the result to the user.",
+            line3:"The idea is to put some commonly or repeatedly done tasks together and make a function so that instead of writing the same code again and again for different inputs, we can call that function.",
+            line4:"We can create functions in JavaScript using the keyword function. ",
+            line5:"We can create functions in JavaScript using the keyword function. ",
+            line6:"A list of parameters enclosed within parenthesis and separated by commas.",
+        }
+        ,
+        {
+            topic:"Strings",
+            line1:"JavaScript strings are used for storing and manipulating text. It can contain zero or more characters within quotes.",
+            line2:"String Length: The length of a string can be found using the length property.",
+            line3:" Sometimes we need to divide the string for ease of understanding, the symbol \ can be used but its not preferred. The preferred method is to use the + symbol between the two strings.",
+            line4:" Strings can be used as objects by using the keyword ‘new’.",
+            line5:"A JavaScript string is zero or more characters written inside quotes.",
+            line6:"Normally, JavaScript strings are primitive values, created from literals:"
+        }
+        ,
+        {
+            topic:"Numbers",
+            line1:"In JavaScript, numbers are primitive data types.",
+            line2:"Unlike in some other programming languages, you don't have to specifically declare for integer or floating values using int, float, etc.",
+            line3:"Numbers can also be denoted in hexadecimal notation.",
+            line4:"In JavaScript, NaN(Not a Number) is a keyword that indicates that the value is not a number.",
+            line5:"A JavaScript string is zero or more characters written inside quotes.",
+            line6:"Operations on floating-point numbers results in some unexpected results."
+        }
+        ,
+        {
+            topic:"Undefined",
+            line1:"The global undefined property represents the primitive value undefined. It is one of JavaScript's primitive types.",
+            line2:"undefined is a property of the global object. That is, it is a variable in global scope. The initial value of undefined is the primitive value undefined.",
+            line3:"A variable that has not been assigned a value is of type undefined. A method or statement also returns undefined if the variable that is being evaluated does not have an assigned value.",
+            line4:"A function returns undefined if a value was not returned.",
+            line5:"You can use undefined and the strict equality and inequality operators to determine whether a variable has a value. In the following code, the variable x is not initialized, and the if statement evaluates to true.",
+            line6:"The global scope is bound to the global object, so checking the existence of a variable in the global context can be done by checking the existence of a property on the global object, using the in operator, for instance:"
+        },
+        {
+            topic:"Null",
+            line1:"The null in JavaScript is a special value & also a data type. ",
+            line2:"The value null represents the intentional absence of any object value. ",
+            line3:"It is one of JavaScript’s primitive values and is treated as falsy for boolean operations.",
+            line4:"The value of null is represented in JavaScript using the literal null.",
+            line5:"It represents nothing or no value. null means we know that the variable does not have any value.",
+            line6:"JavaScript does not assign null to any variable. But we can do it by assigning literal null to a variable."
+        }
+    ]
+    //Create the lines and heading for first topic without any functions to display
+    document.getElementById("headp").textContent=mdata[0].topic
+    //Create lines and headings
+            crul=document.createElement("ul")
+            crli1=document.createElement("li")
+            crli1.textContent=mdata[0].line1
+            crli2=document.createElement("li")
+            crli2.textContent=mdata[0].line2
+            crli3=document.createElement("li")
+            crli3.textContent=mdata[0].line3
+            crli4=document.createElement("li")
+            crli4.textContent=mdata[0].line4
+            crli5=document.createElement("li")
+            crli5.textContent=mdata[0].line5
+            crli6=document.createElement("li")
+            crli6.textContent=mdata[0].line6
+
+document.getElementById("textdiv").append(crli1,crli2,crli3,crli5,crli4,crli6)
+//create function with onclick button for run function
+    function displayTopic(x){
+// Empty the div for every times get new data 
+        document.getElementById("textdiv").textContent=""
+        //Run the loop for get the  correct data by which button pressing onclick
+        for(let i=0;i<mdata.length;i++){
+         
+        
+        if(mdata[i].topic==x){
+            // Again create the lines an d topics using dom 
+            document.getElementById("headp").textContent=mdata[i].topic
+            crul=document.createElement("ul")
+            crli1=document.createElement("li")
+            crli1.textContent=mdata[i].line1
+            crli2=document.createElement("li")
+            crli2.textContent=mdata[i].line2
+            crli3=document.createElement("li")
+            crli3.textContent=mdata[i].line3
+            crli4=document.createElement("li")
+            crli4.textContent=mdata[i].line4
+            crli5=document.createElement("li")
+            crli5.textContent=mdata[i].line5
+            crli6=document.createElement("li")
+            crli6.textContent=mdata[i].line6
+//Makes all the element to child append
+document.getElementById("textdiv").append(crli1,crli2,crli3,crli5,crli4,crli6)
+
+    }
+    }
+}
+</script>

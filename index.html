@@ -1,0 +1,58 @@
+<!-- Create an index.html page, add a 'Throw dice' button to it.
+
+On clicking ‘throw dice’ button, the user should be able to see a random number between 1 to 6.
+
+If the number is 6, show the number in 'green’ color, if the number is ‘1’ show the number in ‘yelllow’ color.
+
+For the rest of the numbers, show 'red' color. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #mainbox{
+        margin: auto;
+        height: 100px;
+        width: 100px;
+        border: 1px solid red;
+        border-style: dotted;
+        margin: auto;
+       font-size: 28px;
+    }
+    #dice{
+        margin: auto;
+        height: 100px;
+        width: 100px;
+        border: 1px solid red;
+        border-style: dotted;
+        margin: auto;
+        font-size: 28px;
+    }
+</style>
+</head>
+<body>
+  <button onclick="die()" id="dice">button2</button>
+  <button id="mainbox">button1</button>
+</body>
+</html>
+<script>
+    function die(){
+   var x= document.getElementById("mainbox").innerHTML="";
+    var diceNumber=document.getElementById("dice");
+    dicevalue=Math.floor(Math.random()*6)+1;
+    diceNumber.innerHTML=dicevalue;
+    if(dicevalue==1){
+       diceNumber.style.color="red"; 
+    }
+    else if(dicevalue==6){
+        diceNumber.style.color="green";
+    }
+    else{
+        diceNumber.style.color="black"
+    }
+    }
+
+</script>
